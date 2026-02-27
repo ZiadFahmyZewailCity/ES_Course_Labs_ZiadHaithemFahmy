@@ -6,6 +6,10 @@
 #include "../HAL/LED/LED_interface.h"
 #include "../MCAL/GPIO/GPIO_interface.h"
 
+
+//This is a check to make sure git is working via microC
+
+
 void delay(void)
 {
     unsigned int i;
