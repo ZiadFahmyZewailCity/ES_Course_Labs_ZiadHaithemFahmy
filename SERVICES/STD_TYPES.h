@@ -19,4 +19,10 @@ typedef long double f128;
 /* Standard Values */
 #define NULL_PTR   ((void*)0)
 
+#define PORTA_ID 0
+#define PORTB_ID 1
+#define PORTC_ID 2
+
+
+
 #endif

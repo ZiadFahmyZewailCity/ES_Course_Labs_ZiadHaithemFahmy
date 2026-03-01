@@ -1,5 +1,6 @@
 #include "LED_interface.h"
 #include "../../MCAL/GPIO/GPIO_interface.h"
+#include "LED_config.h"
 
 void LED_Init(u8 Port, u8 Pin)
 {
@@ -24,4 +25,10 @@ void LED_Toggle(u8 Port, u8 Pin)
         GPIO_SetPinValue(Port, Pin, GPIO_LOW);
     else
         GPIO_SetPinValue(Port, Pin, GPIO_HIGH);
+}
+
+void SWITCH_Init(u8 pin)
+{
+    LED_Init(LED_PORT,pin);
+
 }

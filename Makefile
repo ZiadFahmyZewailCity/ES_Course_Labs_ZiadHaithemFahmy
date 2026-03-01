@@ -17,8 +17,8 @@ TARGET = firmware.hex
 # --- Build Rules ---
 all: $(TARGET)
 
-$(TARGET): $(SRCS)
+$(TARGET): $(SRCS) 
 	$(CC) $(CFLAGS) $(INCLUDES) $(SRCS) -o $(TARGET)
 
 clean:
-		rm -f *.hex *.elf *.cmf *.hxl *.sym *.sdb *.o *.p1 *.d *.s *.lst *.rlf __eeprom.* startup.*
+	rm -f *.hex *.elf *.cmf *.hxl *.sym *.sdb *.o *.p1 *.d *.s *.lst *.rlf __eeprom.* startup.*

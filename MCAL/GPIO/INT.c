@@ -7,9 +7,9 @@
 //Its global, static & intialized to zeros so stored in  .bss 
 static void (*PTR_EXT_INTO_CALLBACK)(void) = 0;
 
-void EXT_INTO_Int(void)
+void EXT_INTO_Init(void)
 {
-    GPIO_SetPinDirection(PORTB,0,1);
+    GPIO_SetPinDirection(INT_PORT,INT_PIN,1);
 }
 
 void EXT_INTO_Enable(void)

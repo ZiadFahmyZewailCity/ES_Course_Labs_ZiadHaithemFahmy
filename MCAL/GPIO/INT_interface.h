@@ -6,7 +6,7 @@
 //Interupt task Week 1
 
 //Calls setpin function from GPIO & sets it
-void EXT_INTO_Int(void);
+void EXT_INTO_Init(void);
 
 //Configure INTEDG
 //What this should do is go the the register with the GIE & INTE bits 

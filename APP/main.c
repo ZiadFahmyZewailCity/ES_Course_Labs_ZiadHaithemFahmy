@@ -5,27 +5,30 @@
 */
 #include "../HAL/LED/LED_interface.h"
 #include "../MCAL/GPIO/GPIO_interface.h"
+#include "INT_interface.h"
+#include "STD_TYPES.h"
 
-
-//This is a check to make sure git is working via microC
-
-
-void delay(void)
+void toggle_LED(void)
 {
-    unsigned int i;
-    for(i = 0; i < 50000; i++);
+    LED_Toggle(PORTC_ID,0);
+}
+
+void setup()
+{
+    EXT_INTO_Init();
+    EXT_INTO_SetEdge(0);
+    EXT_INTO_SetCallback(toggle_LED);
+    EXT_INTO_Enable();
+    SWITCH_Init(0);
+
+
 }
 
 void main()
 {
-    LED_Init(GPIO_PORTB, GPIO_PIN0);
-
+    setup();
     while(1)
     {
-        LED_On(GPIO_PORTB, GPIO_PIN0);
-        delay();
 
-        LED_Off(GPIO_PORTB, GPIO_PIN0);
-        delay();
     }
 }
