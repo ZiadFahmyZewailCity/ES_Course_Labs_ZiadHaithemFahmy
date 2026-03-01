@@ -136,3 +136,4 @@ void GPIO_Init(void)
     PORTA = GPIO_PORTA_INIT_VAL;
     PORTB = GPIO_PORTB_INIT_VAL;
 }
+

@@ -12,4 +12,8 @@ void LED_On(u8 Port, u8 Pin);
 void LED_Off(u8 Port, u8 Pin);
 void LED_Toggle(u8 Port, u8 Pin);
 
+//Interupt task Week 1
+void SWITCH_Init(u8 pin);
+
+
 #endif
