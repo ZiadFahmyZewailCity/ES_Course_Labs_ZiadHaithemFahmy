@@ -1,7 +1,8 @@
 # --- Microcontroller and Compiler Settings ---
 MCU = 16F877A
 CC = xc8-cc
-CFLAGS = -mcpu=$(MCU) -Os -mdfp=/home/demo/microchip_packs/PIC16F_DFP/xc8
+DFP_PATH = "C:/Users/Ziad/Desktop/Academic/College zewail city/Courses/CIE/Year 4/CIE 408 Embedded Systems/Compiler/Microchip.PIC16Fxxx_DFP.1.7.162/xc8"
+CFLAGS = -mcpu=$(MCU) -Os -mdfp=$(DFP_PATH)
 
 # --- Include Directories (Where your .h files live) ---
 INCLUDES = -IAPP -IHAL/LED -IMCAL/GPIO -ISERVICES
@@ -9,7 +10,8 @@ INCLUDES = -IAPP -IHAL/LED -IMCAL/GPIO -ISERVICES
 # --- Source Files (Where your .c files live) ---
 SRCS = APP/main.c \
        HAL/LED/LED.c \
-       MCAL/GPIO/GPIO.c
+       MCAL/GPIO/GPIO.c \
+       MCAL/GPIO/INT.c \
 
 # --- Output Name ---
 TARGET = firmware.hex
@@ -21,4 +23,4 @@ $(TARGET): $(SRCS)
 	$(CC) $(CFLAGS) $(INCLUDES) $(SRCS) -o $(TARGET)
 
 clean:
-	rm -f *.hex *.elf *.cmf *.hxl *.sym *.sdb *.o *.p1 *.d *.s *.lst *.rlf __eeprom.* startup.*
+	del /Q /F *.elf *.cmf *.hxl *.sym *.sdb *.o *.p1 *.d *.s *.lst *.rlf __eeprom.* startup.*

@@ -3,8 +3,8 @@
 #include "STD_TYPES.h"
 
 
-#define LED_PORT PORTC_ID
-#define LED_PIN 0
+#define LED_PORT GPIO_PORTC
+#define LED_PIN GPIO_PIN0
 
 
 #endif

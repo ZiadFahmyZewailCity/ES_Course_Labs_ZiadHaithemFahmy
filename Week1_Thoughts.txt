@@ -12,4 +12,7 @@ pin RC0/T1OSO/T1CK1 for outputing voltage to turn on LED
 Will need to it to act as an output so TRISC = 0 (0000000)
 
 
-The task requires me to set the pin 
+
+
+Still need to figure out the bonuses, kinda confused as to how to approach them with the given functions, i think i might add some
+need to check with TA

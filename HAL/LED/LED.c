@@ -30,5 +30,4 @@ void LED_Toggle(u8 Port, u8 Pin)
 void SWITCH_Init(u8 pin)
 {
     LED_Init(LED_PORT,pin);
-
 }
