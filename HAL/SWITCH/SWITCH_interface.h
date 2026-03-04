@@ -9,8 +9,9 @@
 #define SWTICH_SLOW SWITCH_1
 
 
-void SWITCH_INTI(void);
-bool SWITCH_CHECK(unsigned int);
+
+void SWITCH_init(void);
+bool SWITCH_CHECK(u8);
 
 
 

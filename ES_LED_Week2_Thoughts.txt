@@ -13,7 +13,10 @@ One for both LEDs
 
 
 *HAL
+LED
 - BLINKFAST() Turns swtiches on and off every 0.2s
 - BLINKSLOW() Turns switches on and off every 0.5s
-
+SWITCH
+- SWITCH_CHECK() Checks the input pins 
+- SWITCH_INTI() Intializes the switch PINs
 

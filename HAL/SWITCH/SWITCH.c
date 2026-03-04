@@ -3,13 +3,15 @@
 #include "SWITCH_private.h"
 #include "STD_TYPES.h"
 
-void SWITCH_INTI()
+void SWITCH_init()
 {
     GPIO_SetPinDirection(SWTICH_0_PORT, SWITCH_0_PIN, GPIO_INPUT);
     GPIO_SetPinDirection(SWITCH_1_PORT, SWITCH_1_PIN, GPIO_INPUT);
 }
 
-bool SWITCH_CHECK(unsigned int switch_)
+
+
+bool SWITCH_CHECK(u8 switch_)
 {
     switch(switch_)
     {
