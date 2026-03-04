@@ -1,0 +1,5 @@
+Ill need Three Pins it seems
+
+Two for buttons
+One for the LEDs
+

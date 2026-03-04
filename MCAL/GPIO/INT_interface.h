@@ -23,4 +23,7 @@ void EXT_INTO_SetEdge(u8 edge_type);
 //in the app layer 
 void EXT_INTO_SetCallback(void (*ptr)(void));
 
+void EXT_TIMER_Enable(void);
+
+
 #endif

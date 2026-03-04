@@ -9,6 +9,15 @@
 #define GIE 7
 //This flag tells you if the interrupt is external
 #define INTF 1
+//Timer flag for 1 interrupt passing
+#define PS0 0
+#define PS1 1
+#define PS2 2
+#define PSA 3 
+#define TOCS 5
+
+#define TOIF 2
+#define TOIE 5
 
 //INTEDG for setting clock edge is in the OPTION_REG register (located 0x81) (Page 55)
 #define OPTION_REG (*((volatile u8*)0x81))

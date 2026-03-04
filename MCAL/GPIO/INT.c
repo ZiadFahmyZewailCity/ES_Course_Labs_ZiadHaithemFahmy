@@ -7,10 +7,9 @@
 //PTR to a function which takes no inputs & returns void
 //Its global, static & intialized to zeros so stored in  .bss 
 static void (*PTR_EXT_INTO_CALLBACK)(void) = 0;
-
+static int interruptCount  = 0;
 void EXT_INTO_Init(void)
 {
-    GPIO_SetPinDirection(INT_PORT,INT_PIN,GPIO_INPUT);
     EXT_INTO_SetEdge(INT_EDGE_CONTROL);
 }
 
@@ -18,8 +17,19 @@ void EXT_INTO_Enable(void)
 {
     SET_BIT(INTCON,INTE);
     SET_BIT(INTCON,GIE);
-
+    
 }
+
+void EXT_TIMER_Enable(void)
+{
+    SET_BIT(INTCON,TOIE);
+    SET_BIT(OPTION_REG,PS0);
+    SET_BIT(OPTION_REG,PS1);
+    SET_BIT(OPTION_REG,PS2);
+    CLR_BIT(OPTION_REG,PSA);
+    CLR_BIT(OPTION_REG,TOCS);
+}
+
 
 void EXT_INTO_Disable(void)
 {
@@ -49,12 +59,23 @@ void EXT_INTO_SetCallback(void (*ptr)(void))
 void __interrupt() ISR_ExtCall(void)
 {
 
-    //Checks to see if this interrupt is external
-    if(GET_BIT(INTCON,INTF) == 1)
+    //Checks to see if this interrupt is from counter
+    if(GET_BIT(INTCON,TOIF) == 1)
     {
+
+        if(interruptCount < 31)
+        {
+            interruptCount = interruptCount + 1;
+        }
+        else
+        {
+            PTR_EXT_INTO_CALLBACK();
+            interruptCount = 0;
+        }
+     
         //Acknowledge that i am servicing interrupt by clearing INTF 
-        CLR_BIT(INTCON,INTF);
-        PTR_EXT_INTO_CALLBACK();
+        CLR_BIT(INTCON,TOIF);
+        
 
     }
 
