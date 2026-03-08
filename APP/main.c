@@ -48,31 +48,6 @@ void main()
 }
 */
 
-
-//LED TASK 
-/*
-void setup()
-{
-    GPIO_Init();
-
-    //Setting pin to be output for LED
-    LED_Init(GPIO_PORTC,GPIO_PIN0);
-    SWITCH_init();
-    
-
-}
-
-void main()
-{
-    setup();
-    while(1)
-    {
-        if(SWITCH_CHECK(SWTICH_SLOW)) {BLINKSLOW();}
-        else if(SWITCH_CHECK(SWITCH_FAST)) {BLINKFAST();}
-    }
-}
-*/
-
 //Motor control task (week2)
 volatile u8 button_pressed_flag = 0;
 
@@ -89,7 +64,6 @@ void setup()
     EXT_INTO_Init();
     
 }
-
 
 void main()
 {
@@ -109,10 +83,10 @@ void main()
 
             switch (speed_state)
             {
-                case 0: PWM_setDutyCycle(25); break;
-                case 1: PWM_setDutyCycle(50); break;
-                case 2: PWM_setDutyCycle(75); break;
-                case 3: PWM_setDutyCycle(100); break;
+                case 0: SET_MOTOR_dutyCycle(25); break;
+                case 1: SET_MOTOR_dutyCycle(50); break;
+                case 2: SET_MOTOR_dutyCycle(75); break;
+                case 3: SET_MOTOR_dutyCycle(100); break;
             }
                 button_pressed_flag = 0;
         }
@@ -120,23 +94,3 @@ void main()
 }
 
 
-
-//Test Motor
-/*
-void setup()
-{
-    GPIO_Init();
-    PWM_initi();
-}
-void main()
-{
-    setup();
-    PWM_setDutyCycle(25);
-
-    while (1)
-    {
-        
-    }
-    
-}
-*/
