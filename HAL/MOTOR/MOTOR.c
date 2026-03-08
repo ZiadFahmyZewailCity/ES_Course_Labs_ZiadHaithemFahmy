@@ -21,3 +21,11 @@ void MOTOR_Init(void)
     GPIO_SetPinDirection(PWM_PORT, PWM_PIN, GPIO_OUTPUT);
 }
 
+void SET_MOTOR_frequency(u8 desired_freq)
+{
+    PWM_setFrequency(desired_freq);
+}
+void SET_MOTOR_dutyCycle(u8 desired_dutyCycle)
+{
+    PWM_setDutyCycle(desired_dutyCycle);
+}

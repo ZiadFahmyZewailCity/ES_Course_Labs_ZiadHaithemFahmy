@@ -9,6 +9,8 @@
 
 //Initalizes pin for motor control 
 void MOTOR_Init(void);
+void SET_MOTOR_frequency(u8);
+void SET_MOTOR_dutyCycle(u8);
 
 
 

@@ -52,6 +52,9 @@ void adjusted_timer_0_second_count(void);
 //the motor (Just didnt want to play around with the working code of the timer lol)
 void set_timer_0_preScaller(u8);
 
+//Returns the time that passed
+u32 time_timer_0_elapsed(void);
+
 
 /*
 //You pass this the time you want to check in seconds

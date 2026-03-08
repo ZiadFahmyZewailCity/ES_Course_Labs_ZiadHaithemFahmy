@@ -9,22 +9,7 @@
 #include "UTIL.h"
 
 
-//Week 2 Timer_based blinking LED 
-/*
-void toggle_LED_1(void)
-{
-    LED_Toggle(GPIO_PORTB,GPIO_PIN0);
-    time_delay(1);
-    LED_Toggle(GPIO_PORTB,GPIO_PIN0);
-    time_delay(1);
-}
-void toggle_LED_2(void)
-{
-    LED_Toggle(GPIO_PORTB,GPIO_PIN0);
-    time_delay(2);
-    LED_Toggle(GPIO_PORTB,GPIO_PIN0);
-    time_delay(2);
-}
+//Week 2 Timer_based blinking LED
 
 void setup()
 {
@@ -33,21 +18,33 @@ void setup()
     //Enables interrupts 
     TIMR_INTR_ENABLE();
     //Initalize timer
-    timer_intialize(); 
+    timer_0_intialize(); 
 }
 
 void main()
 {
     setup();
+
+    u32 next_trigger_led1 = 1; 
+    u32 next_trigger_led2 = 2; 
     while(1)
     {
-        toggle_LED_1();
-        toggle_LED_2();
-
+        u32 currentTime = time_timer_0_elapsed();
+        
+        if (currentTime >= next_trigger_led1)
+        {
+            LED_Toggle(GPIO_PORTB, GPIO_PIN0);
+            next_trigger_led1 = currentTime + 1; 
+        }
+        if (currentTime >= next_trigger_led2)
+        {
+            LED_Toggle(GPIO_PORTB, GPIO_PIN1);
+            next_trigger_led2 = currentTime + 2; 
+        }
     }
 }
-*/
 
+/*
 //Motor control task (week2)
 volatile u8 button_pressed_flag = 0;
 
@@ -92,5 +89,5 @@ void main()
         }
     }
 }
-
+*/
 
