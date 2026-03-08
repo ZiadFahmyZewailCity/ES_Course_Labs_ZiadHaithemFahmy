@@ -6,7 +6,7 @@
 #include "PWM_config.h"
 #include "../MCAL/TIMER/TIMER2/TIMER2_interface.h"
 
-void PWM_inti(void)
+void PWM_initi(void)
 {
     SET_BIT(CCP1CON, CCP1M3);
     SET_BIT(CCP1CON, CCP1M2);

@@ -10,7 +10,7 @@
 
 
 //Initalizes pin for motor control 
-void PWM_inti();
+void PWM_initi(void);
 //Set Duty Cycle of PWM
 void PWM_setDutyCycle(u8);
 //Sets frequency of PWM

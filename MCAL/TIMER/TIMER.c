@@ -110,7 +110,7 @@ void reset_timer_0_Ticks(void)
 
 bool check_delay(void)
 {
-    return delayTime > time_elapsed();
+    return delayTime > time_timer_0_elapsed();
 }
 
 void increment_timer_0_Ticks(void)

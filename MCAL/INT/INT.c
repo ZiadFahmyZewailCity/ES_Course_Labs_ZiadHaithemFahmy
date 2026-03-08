@@ -67,9 +67,10 @@ void __interrupt() ISR_ExtCall(void)
     }
     */
     //Motor control task (WEEK2)
-
-
-
-
+    if(GET_BIT(INTCON,INTF))
+    {
+        CLR_BIT(INTCON,INTF);
+        PTR_EXT_INTO_CALLBACK();
+    }
 
 }

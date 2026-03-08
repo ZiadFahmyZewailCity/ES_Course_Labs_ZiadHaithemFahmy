@@ -8,7 +8,7 @@
 
 
 //Initalizes pin for motor control 
-void MOTOR_Init();
+void MOTOR_Init(void);
 
 
 

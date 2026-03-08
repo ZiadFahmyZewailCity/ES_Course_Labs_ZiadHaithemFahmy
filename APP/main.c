@@ -4,6 +4,7 @@
 #include "../HAL/SWITCH/SWITCH_interface.h"
 #include "../MCAL/TIMER/TIMER_interface.h"
 #include "../HAL/MOTOR/MOTOR_interface.h"
+
 #include "STD_TYPES.h"
 #include "UTIL.h"
 
@@ -72,21 +73,70 @@ void main()
 }
 */
 
+//Motor control task (week2)
+volatile u8 button_pressed_flag = 0;
+
+void Change_Motor_Speed_ISR(void)
+{
+    button_pressed_flag = 1;
+}
+
 void setup()
 {
     MOTOR_Init();
+    EXT_INTO_SetCallback(Change_Motor_Speed_ISR);
+    EXT_INTO_Enable();
+    EXT_INTO_Init();
     
-
 }
 
 
 void main()
-{   
-    setup();
-    PWM_setDutyCycle(10);
-    while(1){}
+{
+    setup(); 
+    
+    u8 speed_state = 0; 
+    
+    while(1)
+    {
+        if (button_pressed_flag == 1)
+        {
+            speed_state++;
+            if (speed_state > 3)
+            {
+                speed_state = 0;
+            }
 
+            switch (speed_state)
+            {
+                case 0: PWM_setDutyCycle(25); break;
+                case 1: PWM_setDutyCycle(50); break;
+                case 2: PWM_setDutyCycle(75); break;
+                case 3: PWM_setDutyCycle(100); break;
+            }
+                button_pressed_flag = 0;
+        }
+    }
 }
 
 
-//Motor task
+
+//Test Motor
+/*
+void setup()
+{
+    GPIO_Init();
+    PWM_initi();
+}
+void main()
+{
+    setup();
+    PWM_setDutyCycle(25);
+
+    while (1)
+    {
+        
+    }
+    
+}
+*/
