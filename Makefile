@@ -18,7 +18,7 @@ SRCS = APP/main.c \
        MCAL/PWM/PWM.c\
 
 # --- Output Name ---
-TARGET = Lab_2.hex
+TARGET = QUIZ.hex
 
 # --- Build Rules ---
 all: $(TARGET)

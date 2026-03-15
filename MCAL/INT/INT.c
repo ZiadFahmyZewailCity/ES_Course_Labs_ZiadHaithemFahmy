@@ -3,6 +3,7 @@
 #include "INT_config.h"
 #include "../MCAL/GPIO/GPIO_interface.h"
 #include "../MCAL/TIMER/TIMER_interface.h"
+#include "../HAL/LED/LED_interface.h"
 #include "BIT_MATH.h"
 
 //PTR to a function which takes no inputs & returns void
@@ -53,23 +54,33 @@ void EXT_INTO_SetCallback(void (*ptr)(void))
     PTR_EXT_INTO_CALLBACK = ptr; 
 }
 
-
+static volatile unsigned char count_EXT_interrupts = 0; 
 
 void __interrupt() ISR_ExtCall(void)
 {
 
-    //LED ON TIMER Task (WEEK2)
-    /*
-    if(GET_BIT(INTCON,TOIF))
+
+    if(count_EXT_interrupts > 4)
     {
-        adjusted_timer_0_second_count();
-        CLR_BIT(INTCON,TOIF);
+        LED_On(GPIO_PORTA,GPIO_PIN4);
     }
-    */
-    //Motor control task (WEEK2)
-    if(GET_BIT(INTCON,INTF))
+    else
     {
-        CLR_BIT(INTCON,INTF);
-        PTR_EXT_INTO_CALLBACK();
+        //LED ON TIMER Task (WEEK2)
+        if(GET_BIT(INTCON,TOIF))
+        {
+            adjusted_timer_0_second_count();
+            CLR_BIT(INTCON,TOIF);
+        }
+        if(GET_BIT(INTCON,INTF))
+        {
+            count_EXT_interrupts++;
+
+        }
     }
+
+
+
+    
+
 }
