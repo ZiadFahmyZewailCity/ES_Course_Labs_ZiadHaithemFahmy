@@ -15,10 +15,11 @@ SRCS = APP/main.c \
        MCAL/INT/INT.c \
        MCAL/TIMER/TIMER.c \
        MCAL/TIMER/TIMER2/TIMER2.c \
-       MCAL/PWM/PWM.c\
-
+       MCAL/PWM/PWM.c \
+       MCAL/UART/UART.c \
+ 
 # --- Output Name ---
-TARGET = Lab_2.hex
+TARGET = Lab_3.hex
 
 # --- Build Rules ---
 all: $(TARGET)

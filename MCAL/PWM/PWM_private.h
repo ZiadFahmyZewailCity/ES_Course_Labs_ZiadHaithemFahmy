@@ -8,7 +8,7 @@
 
 
 //Side note, Who thought making DIY 10 bit registers by combining some a full register and some bits from another register to be a good idea
-//Seems painfuly to deal with :(
+//Seems painful to deal with :(
 
 
 //Capture/Compare/PWM Register1 (LSB)
