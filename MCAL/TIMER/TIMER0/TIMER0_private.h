@@ -1,5 +1,5 @@
-#ifndef TIMER_PRIVATE_H
-#define TIMER_PRIVATE_H
+#ifndef TIMER0_PRIVATE_H
+#define TIMER0_PRIVATE_H
 
 
 #define TMR0 (*((volatile u8*)0x01))

@@ -5,6 +5,7 @@
         "led_interface.h": "c",
         "motor_interface.h": "c",
         "pwm_interface.h": "c",
-        "led_private.h": "c"
+        "led_private.h": "c",
+        "gpio_interface.h": "c"
     }
 }

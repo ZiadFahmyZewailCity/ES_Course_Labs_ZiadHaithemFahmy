@@ -1,5 +1,5 @@
-#ifndef TIMER_INTERFACE_H
-#define TIMER_INTERFACE_H
+#ifndef TIMER0_INTERFACE_H
+#define TIMER0_INTERFACE_H
 #include "STD_TYPES.h"
 
 //I made AI write these 

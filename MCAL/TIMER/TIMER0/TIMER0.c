@@ -1,8 +1,8 @@
 #include "../SERVICES/STD_TYPES.h"
 #include "../SERVICES/BIT_MATH.h"
-#include "TIMER_config.h"
-#include "TIMER_private.h"
-#include "TIMER_interface.h"
+#include "TIMER0_config.h"
+#include "TIMER0_private.h"
+#include "TIMER0_interface.h"
 
 static volatile u32 count_ticks = 0;
 static volatile u8 delayTime = 0;
